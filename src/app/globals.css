@@ -1,0 +1,733 @@
+@import "tailwindcss";
+
+/* 1. Import Web Fonts */
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"); */
+
+/* 2. Import FontAwesome */
+/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"); */
+
+/* 3. Custom Tailwind Base Styles */
+@layer base {
+  :root {
+    /* Color variables ตามธีมเดิม */
+    --primary: 59 130 246;
+    --secondary: 71 85 105;
+    --tertiary: 234 179 8;
+    --success: 34 197 94;
+    --warning: 245 158 11;
+    --danger: 239 68 68;
+    --info: 59 130 246;
+    --light: 248 250 252;
+    --dark: 15 23 42;
+
+    /* Original theme colors from skin-transportation-logistic.css */
+    --primary: #b61818;
+    --primary-100: #9f1515da;
+    --primary-200: #941414;
+    --primary-300: #891212;
+    --primary--100: #cd1b1b;
+    --primary--200: #d81c1c;
+    --primary--300: #e21f1f;
+    --primary-inverse: #fff;
+
+    --secondary: #585858;
+    --secondary-100: #505050;
+    --secondary-200: #666666;
+    --secondary-300: #4e4e4e;
+    --secondary--100: #2479fb;
+    --secondary--200: #3181fc;
+    --secondary--300: #3d89fc;
+    --secondary-inverse: #fff;
+
+    --tertiary: #262c36;
+    --tertiary-100: #1b2027;
+    --tertiary-200: #161a20;
+    --tertiary-300: #111418;
+    --tertiary--100: #313845;
+    --tertiary--200: #363e4c;
+    --tertiary--300: #3b4454;
+    --tertiary-inverse: #fff;
+
+    --quaternary: #343c4a;
+    --dark: #212529;
+    --light: #fff;
+    --light-100: #f2f2f2;
+    --light-200: #ececec;
+    --light-300: #e6e6e6;
+
+    --default: #777;
+    --border-radius: 0;
+    --border-radius2x: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased font-sans;
+  }
+}
+
+@layer components {
+}
+
+/* เพิ่ม utility classes สำหรับ Tailwind ที่จำเป็น */
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .min-h-screen {
+    min-height: 100vh;
+  }
+
+  .flex-1 {
+    flex: 1 1 0%;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ปรับแต่ง dropdown เพิ่มเติม */
+.dropdown-menu.show {
+  display: block;
+}
+
+/* ปรับแต่ง mobile menu */
+.header-nav-main nav.show {
+  display: block !important;
+}
+
+/* เพิ่ม smooth transition สำหรับ mobile menu */
+.header-nav-main nav {
+  transition: all 0.3s ease;
+}
+
+/* ปรับแต่ง responsive utilities */
+@media (max-width: 991.98px) {
+  .d-lg-none {
+    display: none !important;
+  }
+
+  .header-nav-main {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .d-lg-flex {
+    display: flex !important;
+  }
+
+  .d-lg-inline-block {
+    display: inline-block !important;
+  }
+
+  .d-lg-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .d-xxl-inline-block {
+    display: inline-block !important;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .d-lg-flex {
+    display: flex !important;
+  }
+
+  .d-lg-block {
+    display: block !important;
+  }
+
+  .d-lg-inline-block {
+    display: inline-block !important;
+  }
+
+  .d-lg-none {
+    display: none !important;
+  }
+
+  .header-nav-main {
+    display: block !important;
+  }
+
+  .hstack.d-lg-flex {
+    display: flex !important;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 991.98px) {
+  .d-none {
+    display: none !important;
+  }
+
+  .d-lg-none {
+    display: block !important;
+  }
+
+  .header-nav-main {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .d-xl-inline-block {
+    display: inline-block !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .d-xxl-inline-block {
+    display: inline-block !important;
+  }
+
+  .d-xxl-flex {
+    display: flex !important;
+  }
+}
+
+/* Header specific fixes */
+#header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1030 !important;
+}
+
+.header-body {
+  background: white !important;
+}
+
+.header-effect-reveal-sticky {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Footer responsive styles */
+@media (min-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-lg-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .mb-lg-0 {
+    margin-bottom: 0 !important;
+  }
+
+  .pe-lg-2 {
+    padding-right: 0.5rem !important;
+  }
+
+  .columns-lg-2 {
+    column-count: 2;
+    column-gap: 1rem;
+  }
+
+  .d-lg-row {
+    flex-direction: row !important;
+  }
+
+  .align-items-lg-center {
+    align-items: center !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .d-xxl-inline-block {
+    display: inline-block !important;
+  }
+}
+
+/* Footer specific styles */
+.bg-tertiary {
+  background-color: #262c36 !important;
+}
+
+.text-color-light {
+  color: #fff !important;
+}
+
+.text-color-grey {
+  color: #969696 !important;
+}
+
+.text-color-hover-primary:hover {
+  color: #b61818 !important;
+}
+
+.text-color-dark {
+  color: #262c36 !important;
+}
+
+.font-weight-semibold {
+  font-weight: 600 !important;
+}
+
+.btn-light {
+  background-color: #fff !important;
+  color: #262c36 !important;
+}
+
+.btn-light:hover {
+  background-color: #f2f2f2 !important;
+}
+
+.btn-primary {
+  background-color: #b61818 !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background-color: #941414 !important;
+}
+
+.line-height-9 {
+  line-height: 36px !important;
+}
+
+.ws-nowrap {
+  white-space: nowrap !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.top-1 {
+  top: 0.25rem !important;
+}
+
+.border-top-0 {
+  border-top: 0 !important;
+}
+
+.footer-copyright {
+  background: transparent !important;
+}
+
+.bg-color-light {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.opacity-1 {
+  opacity: 1 !important;
+}
+
+/* Mobile styles */
+@media (max-width: 991.98px) {
+  .col-lg-4,
+  .col-lg-6,
+  .col-lg-8 {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .columns-lg-2 {
+    column-count: 1;
+  }
+
+  .d-xxl-inline-block {
+    display: none !important;
+  }
+
+  .pe-lg-2 {
+    padding-right: 0 !important;
+  }
+
+  .mb-lg-0 {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Text sizes */
+.text-3 {
+  font-size: 14px !important;
+}
+
+.text-3-5 {
+  font-size: 16px !important;
+}
+
+.text-4-5 {
+  font-size: 18px !important;
+}
+/* Animation Classes for useAppearAnimation */
+.appear-animation {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.appear-animation.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Highlight Animation */
+.highlight-animated:before {
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.highlight-animated.animated:before {
+  width: 100%;
+}
+
+/* Custom utility classes that might not be in theme files */
+.z-index-3 {
+  z-index: 3;
+}
+
+.custom-font-size-2 {
+  font-size: 0.9rem;
+}
+
+.positive-ls-2 {
+  letter-spacing: 0.1em;
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+
+.text-color-grey {
+  color: #6c757d;
+}
+
+.text-color-hover-primary:hover {
+  color: var(--primary) !important;
+}
+
+/* Responsive Animation Optimizations */
+@media (max-width: 767px) {
+  .appear-animation {
+    transform: translateY(20px);
+  }
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .appear-animation,
+  .highlight-animated:before {
+    transition: none;
+  }
+
+  .appear-animation {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Floating SVG Animations */
+.floating-svg {
+  width: 100%;
+  height: auto;
+}
+
+.float-element {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.float-top-slow {
+  animation-name: floatTopSlow;
+  animation-duration: 4s;
+}
+
+.float-bottom-slow {
+  animation-name: floatBottomSlow;
+  animation-duration: 5s;
+}
+
+.float-top-medium {
+  animation-name: floatTopMedium;
+  animation-duration: 3.5s;
+}
+
+.float-bottom-medium {
+  animation-name: floatBottomMedium;
+  animation-duration: 4.5s;
+}
+
+@keyframes floatTopSlow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatBottomSlow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes floatTopMedium {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes floatBottomMedium {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Team Carousel Styles */
+.team-carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.team-slide {
+  flex: 0 0 auto;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Custom Card Hover Effects */
+.custom-card-style-1 {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.custom-card-style-1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Carousel Dots */
+.carousel-dots button {
+  border: none;
+  background: transparent;
+}
+
+.carousel-dots button:focus {
+  outline: none;
+}
+
+/* Fill colors */
+.fill-secondary {
+  fill: var(--primary, #b61818);
+}
+/* Custom Owl Carousel Implementation */
+.owl-carousel-container {
+  position: relative;
+}
+
+.owl-carousel-wrapper {
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+
+.owl-carousel-wrapper:active {
+  cursor: grabbing;
+}
+
+.owl-carousel-inner {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.owl-item {
+  flex: 0 0 auto;
+  display: flex;
+}
+
+/* Custom Dots Style */
+.custom-dots-style-1 .owl-dots {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.custom-dots-style-1 .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-dots-style-1 .owl-dot:focus {
+  outline: none;
+}
+
+.custom-dots-style-1 .owl-dot.active,
+.custom-dots-style-1 .owl-dot:hover {
+  background: var(--primary, #b61818);
+}
+
+/* Custom Card Styles */
+.custom-card-style-1 {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.custom-card-style-1:hover {
+  transform: translateY(-5px);
+}
+
+.box-shadow-4 {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-style-1:hover.box-shadow-4 {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Thumb Info Styles */
+.thumb-info-wrapper {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb-info-hide-wrapper-bg {
+  background: transparent;
+}
+
+/* Custom SVG Wrapper */
+.custom-svg-wrapper-2 {
+  position: relative;
+}
+
+.custom-svg-wrapper-2 svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.custom-svg-wrapper-2 > div {
+  position: relative;
+  z-index: 2;
+}
+
+/* SVG Fill Colors */
+.custom-svg-fill-color-secondary {
+  fill: var(--primary, #b61818) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1199px) {
+  .owl-item {
+    width: calc(33.333% - 20px) !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .owl-item {
+    width: calc(33.333% - 20px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .owl-item {
+    width: calc(50% - 15px) !important;
+  }
+}
+
+@media (max-width: 475px) {
+  .owl-item {
+    width: calc(100% - 10px) !important;
+  }
+}
+
+/* Utility Classes */
+.transition-transform {
+  transition-property: transform;
+}
+
+.duration-600 {
+  transition-duration: 0.6s;
+}
+
+.custom-font-size-2 {
+  font-size: 0.9rem;
+}
+
+.text-color-grey {
+  color: #777;
+}
+
+.text-color-hover-primary:hover {
+  color: var(--primary, #b61818) !important;
+}
+
+.positive-ls-2 {
+  letter-spacing: 2px;
+}
+
+.z-index-3 {
+  z-index: 3;
+}
