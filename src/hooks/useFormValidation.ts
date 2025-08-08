@@ -15,7 +15,7 @@ export interface ValidationRules {
   [key: string]: ValidationRule;
 }
 
-export function useFormValidation<T extends Record<string, any>>(
+export function useFormValidation<T extends Record<string, unknown>>(
   initialValues: T,
   rules: ValidationRules
 ) {
@@ -58,10 +58,10 @@ export function useFormValidation<T extends Record<string, any>>(
   );
 
   const setValue = useCallback(
-    (name: keyof T, value: any) => {
+    (name: keyof T, value: unknown) => {
       setValues((prev) => ({ ...prev, [name]: value }));
 
-      const error = validateField(name as string, value);
+      const error = validateField(name as string, String(value));
       setErrors((prev) => ({ ...prev, [name]: error }));
     },
     [validateField]
@@ -76,7 +76,7 @@ export function useFormValidation<T extends Record<string, any>>(
     let hasErrors = false;
 
     Object.keys(rules).forEach((name) => {
-      const error = validateField(name, values[name as keyof T]);
+      const error = validateField(name, String(values[name as keyof T]));
       if (error) {
         newErrors[name as keyof T] = error;
         hasErrors = true;

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -102,7 +101,6 @@ export default function HeroCarousel() {
                           transformOrigin: "left center",
                           color: "transparent",
                           WebkitTextStroke: "2px #ffffff",
-                          textStroke: "2px #ffffff",
                         }}
                       >
                         {slide.title2}
@@ -130,7 +128,6 @@ export default function HeroCarousel() {
                         right: "120px",
                         color: "transparent",
                         WebkitTextStroke: "2px #ffffff",
-                        textStroke: "2px #ffffff",
                       }}
                     >
                       {slide.title2}

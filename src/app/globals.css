@@ -641,7 +641,7 @@
   overflow: hidden;
   border-radius: 50%;
   width: 100%;
-  max-width: 200px;
+  /* max-width: 200px; */
   margin: 0 auto;
   aspect-ratio: 1/1;
   display: flex;
@@ -730,4 +730,99 @@
 
 .z-index-3 {
   z-index: 3;
+}
+
+/* Service Highlights - ให้รูปมีขนาดเท่ากัน */
+.thumb-info-wrapper img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* CTA Section - ปรับแต่ง gradient background */
+.bg-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ปรับแต่ง col-4 ใน mobile */
+@media (max-width: 768px) {
+  .row .col-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .row .col-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Blog Grid Enhancements */
+.blog-posts .post-meta {
+  margin-bottom: 0.75rem;
+}
+
+.blog-posts .post-meta span {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.blog-posts .post-meta i {
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.blog-posts .post-content {
+  padding: 1.5rem 0;
+}
+
+.blog-posts .post-content p {
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.blog-posts .read-more {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.blog-posts .read-more:hover {
+  color: var(--primary) !important;
+  text-decoration: none;
+}
+
+.blog-posts .read-more i {
+  transition: transform 0.3s ease;
+}
+
+.blog-posts .read-more:hover i {
+  transform: translateX(3px);
+}
+
+/* Post hover effects */
+.blog-posts .post {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-posts .post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blog-posts .post-meta span {
+    display: block;
+    margin-bottom: 0.25rem;
+    margin-right: 0 !important;
+  }
+
+  .blog-posts .post-content {
+    padding: 1rem 0;
+  }
 }

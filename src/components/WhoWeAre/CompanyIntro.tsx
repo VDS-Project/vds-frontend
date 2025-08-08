@@ -5,10 +5,18 @@ import { useAppearAnimation } from "@/hooks/useAppearAnimation";
 
 export default function CompanyIntro() {
   // Animation refs
-  const missionRef = useAppearAnimation({ threshold: 0.2 });
-  const highlightRef = useAppearAnimation({ threshold: 0.3, delay: 400 });
+  const missionRef = useAppearAnimation({
+    threshold: 0.2,
+  });
+  const highlightRef = useAppearAnimation({
+    threshold: 0.3,
+    delay: 400,
+  });
   const dropCapsRef = useAppearAnimation({ threshold: 0.2 });
-  const commitmentRef = useAppearAnimation({ threshold: 0.2, delay: 600 });
+  const commitmentRef = useAppearAnimation({
+    threshold: 0.2,
+    delay: 600,
+  });
 
   const image1Ref = useAppearAnimation({ threshold: 0.1 });
   const image2Ref = useAppearAnimation({ threshold: 0.1, delay: 300 });
@@ -19,7 +27,7 @@ export default function CompanyIntro() {
       <div className="row py-5 my-3">
         <div className="col-lg-6">
           <p
-            ref={missionRef.ref}
+            ref={missionRef.ref as React.RefObject<HTMLParagraphElement>}
             className="font-weight-medium text-8 line-height-4 text-color-tertiary negative-ls-1 p-relative bottom-10 appear-animation"
           >
             We are <strong>dedicated</strong> to delivering trusted workforce
@@ -55,7 +63,7 @@ export default function CompanyIntro() {
           </p>
 
           <p
-            ref={commitmentRef.ref}
+            ref={commitmentRef.ref as React.RefObject<HTMLParagraphElement>}
             className="line-height-7 font-weight-regular text-3 appear-animation"
           >
             Our commitment to quality, compliance, and continuous improvement
@@ -86,7 +94,7 @@ export default function CompanyIntro() {
           <div className="cascading-images-wrapper mt-5">
             <div className="cascading-images position-relative">
               <Image
-                ref={image1Ref.ref}
+                ref={image1Ref.ref as React.RefObject<HTMLImageElement>}
                 src="/img/team/whoweare-01.svg"
                 className="appear-animation"
                 width={500}
@@ -98,7 +106,7 @@ export default function CompanyIntro() {
                 style={{ top: "41%", left: "-30%" }}
               >
                 <Image
-                  ref={image2Ref.ref}
+                  ref={image2Ref.ref as React.RefObject<HTMLImageElement>}
                   src="/img/team/whoweare-02.svg"
                   className="appear-animation"
                   width={500}
@@ -111,7 +119,7 @@ export default function CompanyIntro() {
                 style={{ top: "75%", left: "30%" }}
               >
                 <Image
-                  ref={image3Ref.ref}
+                  ref={image3Ref.ref as React.RefObject<HTMLImageElement>}
                   src="/img/team/whoweare-03.svg"
                   className="appear-animation"
                   width={500}

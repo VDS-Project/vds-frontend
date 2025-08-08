@@ -162,7 +162,7 @@ export default function TeamSection() {
             OUR TEAM
           </span>
           <h2
-            ref={titleRef}
+            ref={titleRef as React.RefObject<HTMLHeadingElement>}
             className="font-weight-bold text-10 mb-4 appear-animation"
             data-appear-animation="fadeInUpShorter"
             data-appear-animation-delay="400"
@@ -170,7 +170,7 @@ export default function TeamSection() {
             We Are Passionate
           </h2>
           <p
-            ref={descriptionRef}
+            ref={descriptionRef as React.RefObject<HTMLParagraphElement>}
             className="custom-font-size-2 font-weight-light appear-animation"
             data-appear-animation="fadeInUpShorter"
             data-appear-animation-delay="600"
@@ -236,7 +236,7 @@ export default function TeamSection() {
             </svg>
 
             <div
-              ref={carouselRef}
+              ref={carouselRef as React.RefObject<HTMLDivElement>}
               className="appear-animation"
               data-appear-animation="fadeInUpShorter"
               data-appear-animation-delay="800"
